@@ -218,8 +218,20 @@ namespace Winstaller
                 app.atdes = tbades.Text;
 
                 jsonload();
-
-                DesktopAtalho ash = new DesktopAtalho(app.path, Path.GetDirectoryName(app.path), app.atdes, app.atname);
+                if (comboshty.Text == "Desktop")
+                {
+                    DesktopAtalho ash = new DesktopAtalho(app.path, Path.GetDirectoryName(app.path), app.atdes, app.atname);
+                } 
+                else if (comboshty.Text == "Start Menu")
+                {
+                    DesktopAtalho ash = new DesktopAtalho(app.path, Path.GetDirectoryName(app.path), app.atdes, app.atname, "start");
+                } 
+                else
+                {
+                    MessageBox.Show("Tipo de atalho invalido. Selecione algum atalho","Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                      
+                }
+                
             }
             else
             {

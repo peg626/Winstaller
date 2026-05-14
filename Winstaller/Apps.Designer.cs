@@ -162,7 +162,7 @@
             // comboshty
             // 
             comboshty.FormattingEnabled = true;
-            comboshty.Items.AddRange(new object[] { "Desktop" });
+            comboshty.Items.AddRange(new object[] { "Desktop", "Start Menu" });
             comboshty.Location = new Point(6, 121);
             comboshty.Name = "comboshty";
             comboshty.Size = new Size(121, 23);

@@ -5,11 +5,21 @@ namespace CSJson.Atalho
 {
     public class DesktopAtalho
     {
-        public DesktopAtalho(string atpath, string awdir, string ades, string aname)
+        // location can be "Desktop" (default) or "StartMenu" (places shortcut in user's Start Menu)
+        public DesktopAtalho(string atpath, string awdir, string ades, string aname, string location = "Desktop")
         {
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string folder;
+            if (!string.IsNullOrEmpty(location) && location.ToLower().Contains("start"))
+            {
+                // user's Start Menu folder (Programs)
+                folder = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+            }
+            else
+            {
+                folder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            }
 
-            string shortcutPath = Path.Combine(desktop, aname + ".lnk");
+            string shortcutPath = Path.Combine(folder, aname + ".lnk");
 
             string script = $@"
 $WshShell = New-Object -comObject WScript.Shell
