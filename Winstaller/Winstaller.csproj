@@ -6,6 +6,25 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>winstaller.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="apps.json" />
+    <None Remove="testa.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="apps.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testa.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSJson\CSJson.csproj" />
+  </ItemGroup>
 
 </Project>
